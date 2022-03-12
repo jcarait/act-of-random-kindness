@@ -40,9 +40,11 @@ Task.init(
 },
     {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'task',
     }
 );
+
+module.exports = Task
