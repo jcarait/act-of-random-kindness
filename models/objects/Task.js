@@ -31,14 +31,22 @@ Task.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'location',
+                key: 'id',
+            },
+        },
         location_id: {
-    type: DataTypes.INTEGER,
-    references: {
-        model: 'location',
-        key: 'id',
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'location',
+                key: 'id',
+            },
+        },
+
     },
-    },
-},
     {
         sequelize,
         timestamps: true,

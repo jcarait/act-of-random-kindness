@@ -42,10 +42,10 @@ User.init(
         len: [8],
       },
     },  
-    task_id: {
+    location_id: {
     type: DataTypes.INTEGER,
       references: {
-        model: 'task',
+        model: 'location',
         key: 'id',
       },
     },

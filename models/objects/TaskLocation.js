@@ -4,9 +4,9 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Initialise Location model (table) by extending off Sequelize's Model class
-class Location extends Model { }
+class TaskLocation extends Model { }
 
-Location.init(
+TaskLocation.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -36,15 +36,22 @@ Location.init(
         state: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        task_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'task',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'tag',
+        modelName: 'task_location',
     }
 );
 
-module.exports = Location;
+module.exports = TaskLocation;
