@@ -4,12 +4,15 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Table of Contents
+  * [User Story](#user-story)
   * [Mission](#mission)
   * [Parameters](#parameters)
   * [GITHUB page](#github-page)
   * [Demo Link](#demo-link)
   * [Screenshots](#screenshots)
-  * [Any Questions?](#any-questions)
+  * [Contributors](#contributors)
+
+## User Story  
 
 ## Mission
     * to build a .........................
@@ -28,11 +31,11 @@
 
 ## GITHUB page
 
-[Github](https://github.com/roman-ac/employee-tracker-by-roman-ac)
+[Github](https://github.com/jcarait/act-of-random-kindness)
 
 ## Demo Link
 
-chrome-extension://mmeijimgabbpbgpdklnllpncmdofkcpn/app.html#/files/bd5a1ea2-b0d3-47fa-9a65-5fce523c4513
+chrome-extension://
 
 # Screenshots
 
@@ -45,7 +48,9 @@ chrome-extension://mmeijimgabbpbgpdklnllpncmdofkcpn/app.html#/files/bd5a1ea2-b0d
 <br /> 
 
 
-## Any-Questions?
+## Contributors
   ### Reach out here: 
   [roman-ac](https://github.com/roman-ac)  
-  roman25xx@gmail.com
+  [jcarait](https://github.com/jcarait)
+  [LamekMarouf](https://github.com/LamekMarouf)
+  [tiffmoon](https://github.com/tiffmoon)
