@@ -46,3 +46,5 @@ Location.init(
         modelName: 'tag',
     }
 );
+
+module.exports = Location;

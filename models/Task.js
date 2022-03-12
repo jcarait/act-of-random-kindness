@@ -31,11 +31,12 @@ Task.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        location_id {
+        location_id: {
     type: DataTypes.INTEGER,
     references: {
         model: 'location',
         key: 'id',
+    },
     },
 },
     {
