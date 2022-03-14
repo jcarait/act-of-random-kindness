@@ -13,6 +13,6 @@ const taskData = [
   
 ];
 
-const seedTask = () => Task.bulkCreate(taskData);
+const seedTasks = () => Task.bulkCreate(taskData);
 
-module.exports = seedTask;
+module.exports = seedTasks;
