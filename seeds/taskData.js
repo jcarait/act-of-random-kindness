@@ -7,6 +7,7 @@ const taskData = [
     description: "Debris and rubbish leftover from flood on lawn. Disabled persons in need of a volunteer who can assist",
     date: new Date(2022,2,23),
     duration: 180,
+    status: "open",
     creator_id: 1,
     volunteer_id: 3
   },
