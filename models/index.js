@@ -18,17 +18,6 @@ TaskLocation.belongsTo(Task, {
     foreignKey: 'task_id',
 });
 
-// User hasOne Location
-User.hasOne(Location, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE',
-});
-
-// Location hasOne User
-Location.belongsTo(User, {
-    foreignKey: 'user_id',
-});
-
 // Task belongsToMany Users
 Task.belongsToMany(User, {
     through: { model: UserTask, },
