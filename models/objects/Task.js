@@ -31,6 +31,10 @@ Task.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        status: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         creator_id: {
             type: DataTypes.INTEGER,
             references: {
