@@ -1,9 +1,7 @@
 // import models
 const User = require('./objects/User');
 const Task = require('./objects/Task');
-const Location = require('./objects/Location');
 const TaskLocation = require('./objects/TaskLocation');
-const UserTask = require('./relationships/UserTask');
 // Tag to be added later once all other objects are functional
 // const Tag = require('./objects/Tag')
 
@@ -37,3 +35,9 @@ User.hasMany(Task, {
 User.hasMany(Task, {
     foreignKey: 'volunteer_id',
 });
+
+module.exports = {
+    User,
+    Task,
+    TaskLocation,
+};
