@@ -31,21 +31,20 @@ Task.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        user_id: {
+        creator_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'location',
+                model: 'user',
                 key: 'id',
             },
         },
-        task_location_id: {
+        volunteer_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'location',
+                model: 'user',
                 key: 'id',
             },
         },
-
     },
     {
         sequelize,
