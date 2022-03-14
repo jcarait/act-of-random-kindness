@@ -4,7 +4,11 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../../config/connection');
 
 // Initialize Product model (table) by extending off Sequelize's Model class
-class User extends Model {}
+class User extends Model {
+  async checkPassword(loginPw) {
+    return await bcrypt.compare(loginPw, this.password);
+  }
+}
 
 // set up fields and rules for User model
 User.init(
@@ -44,6 +48,14 @@ User.init(
     },  
     },
   {
+    hooks: {
+      beforeCreate: async (user) => {
+        user.password = await bcrypt.hash(user.password, 10);
+      },
+      beforeUpdate: async (user) => {
+        user.password = await bcrypt.hash(user.password, 10);
+      },
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
