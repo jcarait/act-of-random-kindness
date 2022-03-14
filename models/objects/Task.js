@@ -1,7 +1,7 @@
 // import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
 // import our databse connection from config.js
-const sequelize = require('../config/connection');
+const sequelize = require('../../config/connection');
 
 // Initialise Task model (table) by extending off Sequelize's Model class
 class Task extends Model { }
@@ -30,6 +30,20 @@ Task.init(
         duration: {
             type: DataTypes.INTEGER,
             allowNull: false,
+        },
+        creator_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
+        },
+        volunteer_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
         },
     },
     {

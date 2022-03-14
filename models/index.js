@@ -1,9 +1,7 @@
 // import models
 const User = require('./objects/User');
 const Task = require('./objects/Task');
-const Location = require('./objects/Location');
 const TaskLocation = require('./objects/TaskLocation');
-const UserTask = require('./relationships/UserTask');
 // Tag to be added later once all other objects are functional
 // const Tag = require('./objects/Tag')
 
@@ -18,14 +16,28 @@ TaskLocation.belongsTo(Task, {
     foreignKey: 'task_id',
 });
 
-// Task belongsToMany Users
-Task.belongsToMany(User, {
-    through: { model: UserTask, },
-    foreign_key: 'task_id',
+// Task belongsTo a creator
+Task.belongsTo(User, {
+    foreign_key: 'creator_id',
 });
 
-// User belongsToMany Tasks
-User.belongsToMany(Task, {
-    through: { model: UserTask, },
-    foreignKey: 'user_id',
+// Task belongsTo a volunteer
+Task.belongsTo(User, {
+    foreign_key: 'volunteer_id',
 });
+
+// Creator hasMany Tasks
+User.hasMany(Task, {
+    foreignKey: 'creator_id',
+});
+
+// Volunteers hasMany Tasks
+User.hasMany(Task, {
+    foreignKey: 'volunteer_id',
+});
+
+module.exports = {
+    User,
+    Task,
+    TaskLocation,
+};
