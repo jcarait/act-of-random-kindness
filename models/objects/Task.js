@@ -31,7 +31,6 @@ Task.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-<<<<<<< HEAD:models/objects/Task.js
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -39,7 +38,7 @@ Task.init(
                 key: 'id',
             },
         },
-        location_id: {
+        task_location_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'location',
@@ -48,16 +47,6 @@ Task.init(
         },
 
     },
-=======
-        location_id: {
-    type: DataTypes.INTEGER,
-    references: {
-        model: 'location',
-        key: 'id',
-    },
-    },
-},
->>>>>>> main:models/Task.js
     {
         sequelize,
         timestamps: true,
