@@ -61,8 +61,6 @@ body {
   transform-origin: bottom left;
 }
 
-
-
 .loginBar {
   width: 4%;
   display: flex;
@@ -80,6 +78,7 @@ body {
   font-size: larger;
   font-weight: 600;
 }
+
 
 #login {
   color: var(--text-color);
@@ -99,4 +98,41 @@ body {
   color: white;
 }
 
+.loginPageBody {
+  display: flex;
+  justify-content: space-around;
+  background-color: #b65c5c;
+  position: fixed;
+  top: 57px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
 
+#signupTitle, #loginTitle {
+  font-weight: 600;
+  font-size: larger;
+  margin-bottom: 10%;
+}
+
+.signupForm, .loginForm {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.form-group {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#name-signup, #password-signup, #email-signup, #email-login, #password-login {
+  width: 50%;
+  display: flex;
+} 
