@@ -38,17 +38,19 @@ router.get('/', async (req, res) => {
       if (!userData) {
         res
           .status(400)
-          .json({ message: 'Incorrect email or password, please try again' });
+          .json({ message: 'Incorrect email' });
         return;
       }
   
+      // Incorrect email or password, please try again
+
       const validPassword = await userData.checkPassword(req.body.password);
       console.log(validPassword);
   
       if (!validPassword) {
         res
-          .status(402)
-          .json({ message: 'Incorrect email or password, please try again' });
+          .status(400)
+          .json({ message: `${req.body.password} is the Incorrect password` });
         return;
       }
   
