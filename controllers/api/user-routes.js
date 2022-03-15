@@ -43,10 +43,11 @@ router.get('/', async (req, res) => {
       }
   
       const validPassword = await userData.checkPassword(req.body.password);
+      console.log(validPassword);
   
       if (!validPassword) {
         res
-          .status(400)
+          .status(402)
           .json({ message: 'Incorrect email or password, please try again' });
         return;
       }
