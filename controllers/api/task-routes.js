@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { Task, User, Location } = require('../../models');
+const { Task } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const taskData = await Task.findAll();
     res.status(200).json(taskData);
@@ -21,6 +21,26 @@ router.post('/', withAuth, async (req, res) => {
     res.status(200).json(newProject);
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const taskData = await Task.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      }
+    });
+
+    if (!taskData) {
+      res.status(404).json({ message: 'No task found with this id!' })
+      return;
+    }
+
+    res.status(200).json(taskData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
