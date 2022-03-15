@@ -2,14 +2,14 @@ const loginFormHandler = async (event) => {
   event.preventDefault();
 
   // Collect values from the login form
-  const email = document.querySelector('#email-login').value.trim();
+  const user_name = document.querySelector('#username-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
-  if (email && password) {
+  if (user_name && password) {
     // Send a POST request to the API endpoint
     const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ user_name, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -25,14 +25,16 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#name-signup').value.trim();
+  const user_name = document.querySelector('#username-signup').value.trim();
+  const first_name = document.querySelector('#firstname-signup').value.trim();
+  const last_name = document.querySelector('#lastname-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  if (name && email && password) {
+  if (user_name && first_name && last_name && email && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ user_name, first_name, last_name, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
