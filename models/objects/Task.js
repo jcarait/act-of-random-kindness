@@ -59,4 +59,4 @@ Task.init(
     }
 );
 
-module.exports = Task
+module.exports = Task;
