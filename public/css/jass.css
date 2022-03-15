@@ -131,7 +131,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 8%;
+  padding: 5% 8%;
   background:rgba(0, 0, 0, 0.5);
   border-radius: 8px;
 }
@@ -145,11 +145,21 @@ body {
 }
 
 #loginButton, #signupButton {
-  width: 170px;
+  width: 100px;
   text-align: center;
   margin-bottom: 10%;
-  font-weight: 700;
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 2%;
   border: none;
+  background: none;
+  color: white;
+  font-weight: 600;
+  margin: 10px 35px;
+  cursor: pointer;
+}
+
+#loginButton:hover, #signupButton:hover {
+  background-color: #1c1c1c;
+  transition: 0.5s;
+  border-radius: 5px;
 }
