@@ -1,44 +1,17 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
+<section class="profilePage">
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Volunteer Task:</h3>
+  <section class="tasks">
+  <p>Tasks</p>
+  </section>
 
-    <form class="form new-task-form">
-      <div class="form-group">
-        <label for="task-name">task name:</label>
-        <input class="form-input" type="text" id="task-name" name="task-name" />
-      </div>
-      <div class="form-group">
-        <label for="task-desc">description:</label>
-        <textarea class="form-input" id="task-desc" name="task-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
+  <section class="assignedTasks">
+  <p>Assigned Tasks</p>
+  </section>
 
-  {{#if tasks.length}}
-  <div class="col-md-6 task-list">
-    <h3>Current tasks:</h3>
+  <section class="rightColumn">
+  <p>Test</p>
+  </section>
 
-    {{#each tasks as |task|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/task/{{task.id}}">{{task.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{task.id}}">DELETE</button>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-  {{/if}}
-</div>
+</section>
 
 <script src="./js/profile.js"></script>
