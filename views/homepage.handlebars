@@ -4,8 +4,8 @@
     <div class="columnOne">
         <div class="slidecontainer">
             <p class="subtitles" id="distanceTitle">Distance</p>
-            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-            <p id="value">Value: <span id="demo"></span></p>
+            <input type="range" min="5" max="50" value="25" class="slider" id="myRange">
+            <p id="value"><span id="demo"></span>km</p>
         </div>
         <div class="volunteerButtonSection">
             <p class="subtitles" id="volunteerTitle">Want to Volunteer</p>
@@ -14,7 +14,7 @@
         <section class="filters">
             <p class="subtitles" id="filtersTitle">Filters and Tags</p>
             <div class="filterTags">
-                <button class="filterButton">Filter One</button>
+                <button class="filterButton" id="filterOne">Filter One</button>
                 <button class="filterButton">Filter Two</button>
                 <button class="filterButton">Filter Three</button>
                 <button class="filterButton">Filter Four</button>
@@ -42,4 +42,20 @@
 
 </section>
 
+<script>
+    const button = document.getElementById("filterOne");
+    button.addEventListener('click', () => {
+    console.log("Hello");
+})
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+
 <script src="../public/js/rangeSlider.js"></script>
+<script src="../public/js/filterToggle.js"></script>
