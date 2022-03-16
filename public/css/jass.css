@@ -164,7 +164,7 @@ body {
   border-radius: 5px;
 }
 
-.wholeBody {
+.mainBody {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
   margin: 2em;
@@ -174,32 +174,50 @@ body {
 .columnOne {
   display: grid;
   grid-template-rows: 2fr 2fr 3fr;
-  border: solid var(--main-color);
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .columnTwo {
   display: grid;
   grid-template-rows: 1fr 4fr;
   border: solid var(--main-color);
+  background-color: white;
+  border-radius: 10px;
 }
 
 .columnThree {
   border: solid var(--main-color);
+  background-color: white;
+  border-radius: 10px;
+}
+
+.subtitles {
+  font-size: 20px;
+  font-weight: 700
 }
 
 .slidecontainer {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .slider {
   -webkit-appearance: none;
-  width: 100%;
+  width: 12em;
   height: 25px;
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  border-radius: 6px;
+  border: #1c1c1c solid;
 }
 
 .slider:hover {
@@ -211,8 +229,10 @@ body {
   appearance: none;
   width: 25px;
   height: 25px;
-  background: #04AA6D;
+  background: var(--text-color);
   cursor: pointer;
+  border-radius: 6px;
+  border: #1c1c1c solid;
 }
 
 .slider::-moz-range-thumb {
@@ -220,4 +240,132 @@ body {
   height: 25px;
   background: #04AA6D;
   cursor: pointer;
+}
+
+#value {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Find Volunteer Box */
+.volunteerButtonSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+/* Find Volunteer Button */
+.findVolunteer {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 14px;
+  width: 80%;
+  height: 3em;
+}
+
+.findVolunteer:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.findVolunteer:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.findVolunteer:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+/* Filters Title */
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#filtersTitle {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* Filter Tag Buttons */
+.filterButton {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 1px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 14px;
+  height: 2em;
+}
+
+.filterButton:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.filterButton:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.filterButton:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.filterTags {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1em;
+  padding: 1em;
 }
