@@ -1,25 +1,76 @@
 <div class="loginPageBody">
-
-  <div class="signupSide">
+  
     <div class="signupBox">
-      <div id="signupTitle">SIGNUP</div>
-      <form><div id="usernameTitle">Username: <input type="text" name="username"></div></form>
-      <form><div id="emailTitle">Email: <input type="text" name="email"></div></form>
-      <form><div id="createPasswordTitle">Create a Password: <input type="password" name="password"></div></form>
-      <button id="signupButton" type="submit">Sign Up</button>
-    </div>
-  </div>
 
-  <div class="loginSide"> 
+      <div id="signupTitle">SIGNUP</div>
+        
+      <form class="form signup-form">
+
+        <div id="usernameTitle" class="form-group">
+          <label for="name-signup">Username:</label>
+          <input class="form-input" type="text" id="username-signup" />
+        </div>
+        <div id="firstnameTitle" class="form-group">
+          <label for="firstname-signup">First Name:</label>
+          <input class="form-input" type="text" id="firstname-signup" />
+        </div>
+        <div id="lastnameTitle" class="form-group">
+          <label for="lastname-signup">Last Name:</label>
+          <input class="form-input" type="text" id="lastname-signup" />
+        </div>
+        <div id="emailTitle" class="form-group">
+          <label for="email-signup">Email:</label>
+          <input class="form-input" type="text" id="email-signup" />
+        </div>
+        <div id="createPasswordTitle" class="form-group">
+          <label for="password-signup">Password:</label>
+          <input class="form-input" type="password" id="password-signup" />
+        </div>
+        <div class="form-group">
+          <button id="signupButton" class="btn btn-primary" type="submit">SignUp</button>
+        </div>
+
+            <!--<form><div id="usernameTitle">Username: <input type="text" name="username"></div></form>
+            <form><div id="emailTitle">Email: 
+              <input type="text" name="email"></div></form>
+
+            <form><div id="createPasswordTitle">Create a Password: 
+              <input type="password" name="password"></div></form>
+
+          <button id="signupButton" type="submit">Sign Up</button>-->
+      </form>
+        
+    </div>
+
     <div class="loginBox">
       <div id="loginTitle">LOGIN</div>
-      <form><div id="loginUsernameTitle">Username: <input type="text" name="username"></div></form>
-      <form><div id="loginPasswordTitle">Password: <input type="password" name="password"></div></form>
-      <button id="loginButton" type="submit">Login</button>
-    </div>
-  </div>
+      
+      <form class="form login-form">
+          <div id="loginUsernameTitle" class="form-group">
+            <label for="username-login">Username:</label>
+            <input class="form-input" type="text" id="username-login" />
+          </div>
+          <div id="loginPasswordTitle" class="form-group">
+            <label for="password-login">Password:</label>
+            <input class="form-input" type="password" id="password-login" />
+          </div>
+          <div id="loginButton" class="form-group">
+            <button class="btn btn-primary" type="submit">login</button>
+          </div>
+      </form>
+
+
+        <!--<div class="loginSide"> 
+        <div class="loginBox">
+          <div id="loginTitle">LOGIN</div>
+          <form><div id="loginUsernameTitle">Username: <input type="text" name="username"></div></form>
+          <form><div id="loginPasswordTitle">Password: <input type="password" name="password"></div></form>
+          <button id="loginButton" type="submit">Login</button>
+        </div>-->
+      </div>
 
 </div>
+
 
 
 <script src="./js/login.js"></script>
