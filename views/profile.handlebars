@@ -6,7 +6,7 @@
 
     <div class="tasksAndAssignedTasksBoxes">
       <div class="tasks">
-        <p>My Tasks</p>
+        <div id="myTasksTitle"><p>My Tasks</p></div>
         <div class="tasksBox">
           <p>Test Item</p>
           <p>Test Item</p>
@@ -19,7 +19,7 @@
       </div>
 
       <div class="assignedTasks">
-        <p>Assigned Tasks</p>
+        <div id="assignedTasksTitle"><p>Assigned Tasks</p></div>
         <div class="assignedTasksBox">
           <p>Test Item</p>
           <p>Test Item</p>
@@ -37,8 +37,9 @@
     <div class="toggleButton">
       <label class="switch">
         <input type="checkbox">
-        <span class="slider round"></span>
+        <span class="slider"></span>
       </label>
+      <button class="updateProfileButton">Update Profile</button>
     </div>
     <button class="createTaskButton">Create a Task</button>
     <button class="volunteerButton">Volunteer</button>

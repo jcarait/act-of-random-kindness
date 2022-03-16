@@ -1,6 +1,6 @@
 :root {
   --main-color: #1c1c1c;
-  --text-color: white;
+  --text-color: rgb(180, 195, 255);
   --accent-color: #66fcf1;
 }
 
@@ -143,12 +143,17 @@ body {
 
 #profileTitle {
   font-size: 2em;
+  font-weight: 700;
+}
+
+#myTasksTitle, #assignedTasksTitle {
+  font-size: 22px;
 }
 
 .rightColumn {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-}
+justify-content: center;}
 
 .createTaskButton, .volunteerButton {
   align-items: center;
@@ -179,7 +184,7 @@ body {
   white-space: nowrap;
   will-change: box-shadow,transform;
   font-size: 18px;
-  width: 60%;
+  width: 80%;
   height: 40%;
 }
 
@@ -197,6 +202,52 @@ body {
   transform: translateY(2px);
 }
 
+.updateProfileButton {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 14px;
+  width: 80%;
+  height: 30%;
+}
+
+.updateProfileButton:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.updateProfileButton:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.updateProfileButton:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -204,14 +255,12 @@ body {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -237,15 +286,21 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: var(--text-color);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px var(--text-color);
 }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+
+.toggleButton {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
 }
