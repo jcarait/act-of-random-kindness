@@ -89,11 +89,19 @@ router.get('/tasks', withAUth, async (req, res) => {
       include: [
         {
           model: Task,
+          through: {
+            attributes: ['createdAt']
+          }
         },
       ]
-    })
+    });
+
+    const task = taskData.get({ plain: true});
+
+    console.log(task);
 
     res.render('tasks', {
+      task,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

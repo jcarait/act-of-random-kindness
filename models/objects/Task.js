@@ -31,9 +31,9 @@ Task.init(
             type: DataTypes.INTEGER,
             allowNull: true,
         },
-        status: {
-            type: DataTypes.STRING,
-            allowNull: true,
+        completed: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
         },
         creator_id: {
             type: DataTypes.INTEGER,
