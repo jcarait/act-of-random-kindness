@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Task } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const taskData = await Task.findAll();
     res.status(200).json(taskData);
@@ -16,6 +16,7 @@ router.post('/', withAuth, async (req, res) => {
     const newTask = await Task.create({
       ...req.body,
       user_id: req.session.user_id,
+      creator_id: req.session.user_id,
     });
 
     res.status(200).json(newTask);
