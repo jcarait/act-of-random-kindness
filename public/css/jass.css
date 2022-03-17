@@ -106,9 +106,13 @@ body {
 .taskSide {
   display: grid;
   grid-template-rows: 1fr 9fr;
-  text-align: center;
   margin-top: 4%;
 }
+
+.taskSide #profileTitle {
+  text-align: center;
+}
+
 
 .tasks, .assignedTasks {
   display: flex;
@@ -122,17 +126,8 @@ body {
   border-style: solid;
   width: 80%;
   height: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-
-.tasksBox ul, .assignedTasksBox ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: 5px;
+  padding: 1em;
 }
 
 .tasksAndAssignedTasksBoxes {
@@ -141,7 +136,7 @@ body {
 
 #profileTitle {
   font-size: 2em;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 #myTasksTitle, #assignedTasksTitle {
@@ -228,8 +223,8 @@ justify-content: center;}
   white-space: nowrap;
   will-change: box-shadow,transform;
   font-size: 14px;
-  width: 80%;
-  height: 30%;
+  width: 100%;
+  height: 20%;
 }
 
 .updateProfileButton:focus {
@@ -300,5 +295,11 @@ input:checked + .slider:before {
 .toggleButton {
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 10px;
+}
+
+.profilePageSubtitles {
+  font-size: 24px;
+  font-weight: 700;
 }
