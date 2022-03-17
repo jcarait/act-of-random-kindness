@@ -31,9 +31,12 @@ Task.init(
             type: DataTypes.INTEGER,
             allowNull: true,
         },
-        completed: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
+        status: {
+            type: DataTypes.STRING,
+            defaultValue: 'open',
+            validate: {
+                isIn: [['open', 'closed', 'cancelled', 'in progress']]
+            },
         },
         creator_id: {
             type: DataTypes.INTEGER,

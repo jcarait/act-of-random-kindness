@@ -1,6 +1,7 @@
 const router = require('express').Router();
+const { createPoolCluster } = require('mysql2');
 const { User, Task, TaskLocation } = require ('../models');
-const withAUth = require ('../utils/auth');
+const withAuth = require ('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -27,7 +28,7 @@ router.get('/', async (req, res) => {
 
 });
 
-router.get('/tasks/:id', async (req, res) => {
+router.get('/tasks/:id', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const taskData = await Task.findByPk(req.params.id, {
@@ -57,7 +58,7 @@ router.get('/tasks/:id', async (req, res) => {
 });
 
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, { 
@@ -73,10 +74,10 @@ router.get('/profile', async (req, res) => {
 
     res.render('profile', {
       ...user,
-      logged_in: true,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 
   
@@ -97,14 +98,15 @@ router.get('/login', async (req, res) => {
 });
 
 
-router.get('/tasks', async (req, res) => {
+router.get('/tasks', withAuth, async (req, res) => {
 
   try {
     const taskData = await Task.findAll({
       include: [
         {
           model: User,
-          attributes: ['first_name'],
+          as: 'creator',
+          attributes: ['user_name'],
         },
       ],
     });

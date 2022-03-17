@@ -7,7 +7,7 @@ const taskData = [
     description: "Debris and rubbish leftover from flood on lawn. Disabled persons in need of a volunteer who can assist",
     date: new Date(2022,2,23),
     duration: 180,
-    status: "open",
+    status: 'open',
     creator_id: 1,
     volunteer_id: 3
   },
@@ -16,7 +16,7 @@ const taskData = [
     description: "Elderly couple looking for help to mow our lawn. any help is much appreciated",
     date: new Date(2022,3,13),
     duration: 120,
-    status: "open",
+    status: 'open',
     creator_id: 1,
     volunteer_id: 4
   },
@@ -25,7 +25,7 @@ const taskData = [
     description: "in bit of financial situation and need help with plumbing fix in bathroom",
     date: new Date(2022,2,28),
     duration: 180,
-    status: "open",
+    status: 'open',
     creator_id: 3,
     volunteer_id: 2
   },
