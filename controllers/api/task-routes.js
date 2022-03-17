@@ -15,7 +15,6 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newTask = await Task.create({
       ...req.body,
-      user_id: req.session.user_id,
       creator_id: req.session.user_id,
     });
 

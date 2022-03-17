@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
+          as: 'creator',
           attributes: ['first_name'],
         }
       ],
@@ -43,13 +44,17 @@ router.get('/profile', async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Task }],
+    
+      include: [
+        {
+          model: Task,
+          as: 'creator_tasks'
+        }
+      ]
     });
 
-    
-
-    const user = userData.get({ plain: true });
+  
+    const user = userData.get({ plain: true});
 
     console.log(user);
 
@@ -80,6 +85,14 @@ router.get('/login', async (req, res) => {
 
 router.get('/tasks', withAUth, async (req, res) => {
   try {
+    const taskData = await Task.findAll({
+      include: [
+        {
+          model: Task,
+        },
+      ]
+    })
+
     res.render('tasks', {
       logged_in: req.session.logged_in,
     });
