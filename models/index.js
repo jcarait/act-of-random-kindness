@@ -18,7 +18,7 @@ TaskLocation.belongsTo(Task, {
 
 // Task belongsTo a creator
 Task.belongsTo(User, {
-    foreign_key: 'creator_id',
+    foreign_key: 'user_id',
 });
 
 // Task belongsTo a volunteer
@@ -28,7 +28,7 @@ Task.belongsTo(User, {
 
 // Creator hasMany Tasks
 User.hasMany(Task, {
-    foreignKey: 'creator_id',
+    foreignKey: 'user_id',
 });
 
 // Volunteers hasMany Tasks

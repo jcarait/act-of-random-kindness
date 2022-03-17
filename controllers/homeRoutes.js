@@ -4,7 +4,20 @@ const withAUth = require ('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
+
+    const taskData = await Task.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['first_name'],
+        }
+      ],
+    });
+
+    const tasks = taskData.map((task) => task.get({ plain: true }));
+
     res.render('homepage', {
+      tasks,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -27,33 +40,21 @@ router.get('/tasks/:id', async (req, res) => {
 
 
 router.get('/profile', async (req, res) => {
-  console.log(req.session.user_id);
   try {
     // Find the logged in user based on the session ID
-    const taskData = await Task.findAll({
-      where: [
-        {
-        creator_id: req.session.user_id,
-      }
-    ],
-      include: [
-        {
-          model: User,
-        },
-        { 
-        model: TaskLocation,
-      },
-    ]
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Task }],
     });
 
     
 
-    const tasks = taskData.map((task) => task.get({ plain: true}));
+    const user = userData.get({ plain: true });
 
-    console.log(tasks);
+    console.log(user);
 
     res.render('profile', {
-      tasks,
+      ...user,
       logged_in: true
     });
   } catch (err) {
@@ -79,7 +80,7 @@ router.get('/login', async (req, res) => {
 
 router.get('/tasks', withAUth, async (req, res) => {
   try {
-    res.render('profile', {
+    res.render('tasks', {
       logged_in: req.session.logged_in,
     });
   } catch (err) {

@@ -29,11 +29,18 @@ Task.init(
         },
         duration: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         status: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
         },
         creator_id: {
             type: DataTypes.INTEGER,
