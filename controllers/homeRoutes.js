@@ -13,12 +13,12 @@ router.get('/', async (req, res) => {
 
 });
 
-router.get('/task/:id', async (req, res) => {
+router.get('/tasks/:id', async (req, res) => {
   try {
 
 
-    res.render('task', {
-      logged_in: req.session.logged_in
+    res.render('tasks', {
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -29,7 +29,7 @@ router.get('/task/:id', async (req, res) => {
 router.get('/profile', async (req, res) => {
   try {
     res.render('profile', {
-      logged_in: true,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -54,10 +54,14 @@ router.get('/tasks', withAUth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const taskData = await Task.findAll({
-      include: [{
+      include: [
+        {
         model: User,
         attributes: ['user_name'],
-      }]
+      }, { 
+        model: TaskLocation,
+      },
+    ]
     });
 
     const tasks = taskData.map((task) => task.get({ plain: true}));
@@ -65,7 +69,7 @@ router.get('/tasks', withAUth, async (req, res) => {
     res.render('tasks', {
       tasks,
       logged_in: true
-    })
+    });
   } catch (err) {
     res.status(500).json(err);
   }
