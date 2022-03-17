@@ -42,12 +42,11 @@ router.get('/', async (req, res) => {
       }
 
       const validPassword = await userData.checkPassword(req.body.password);
-      console.log(validPassword);
   
       if (!validPassword) {
         res
           .status(400)
-          .json({ message: `${req.body.password} is the Incorrect password` });
+          .json({ message: 'Incorrect username or password, please try again' });
         return;
       }
   
