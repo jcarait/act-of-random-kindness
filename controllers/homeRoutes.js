@@ -86,22 +86,21 @@ router.get('/login', async (req, res) => {
 router.get('/tasks', withAUth, async (req, res) => {
   try {
     const taskData = await Task.findAll({
-      include: [
-        {
-          model: Task,
-          through: {
-            attributes: ['createdAt']
-          }
-        },
-      ]
-    });
+    include: [
+      {
+        model: User,
+        as: 'creator',
+        attributes: ['first_name'],
+      }
+    ],
+  });
 
-    const task = taskData.get({ plain: true});
+  const tasks = taskData.map((task) => task.get({ plain: true }));
 
-    console.log(task);
+  console.log(tasks)
 
     res.render('tasks', {
-      task,
+      tasks,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

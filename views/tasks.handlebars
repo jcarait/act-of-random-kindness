@@ -1,0 +1,13 @@
+{{#if tasks.length}}
+  <div class="col-md-6 task-list">
+    <h3>Available Tasks</h3>
+
+    {{#each tasks as |task|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/tasks/{{task.id}}">{{task.task_name}}</a></h4>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
