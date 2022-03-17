@@ -12,12 +12,12 @@ const app = express();
 const PORT = process.env.PORT || 3080;
 
 // Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'Super secret secret',
   cookie: {},
-  //maxAge: 900000,
+  maxAge: 900000,
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

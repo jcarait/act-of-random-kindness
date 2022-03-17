@@ -14,25 +14,16 @@
   <header>
     <section class="navbar">
       {{!-- Navbar Title --}}
-      <p><a href="/" id="title">ARK </a><img src="../../public/images/arkLogo.png" alt="Ark Logo"></p>
+      <p><a href="/" id="title">ARK </a><img src="/images/arkLogo.png" alt="Ark Logo"></p>
       {{!-- Navbar --}}
       <ul class="navbarOne">
-
-        {{#if logged_in}}
         <li><a href="/">Home</a></li>
-        {{else}}
-        <li><a href="/login">Home</a></li>
-        {{/if}}
 
         {{#if logged_in}}
         <li><a href="/profile">Profile</a></li>
-        {{else}}
-        <li><a href="/login">Profile</a></li>
-        {{/if}}
-
-        {{#if logged_in}}
         <li><a href="/tasks">Tasks</a></li>
         {{else}}
+        <li><a href="/login">Profile</a></li>
         <li><a href="/login">Tasks</a></li>
         {{/if}}
 
@@ -46,8 +37,7 @@
         </div></li>
         <li><div class="loginBar">
           {{#if logged_in}}
-            <a href="/profile">Profile</a>
-            <button class="no-button" id="logout"></button><i class="fa-solid fa-user"></i>
+            <button class="no-button" id="logout"><i class="fa-solid fa-user"></i>
             Logout</button>
           {{else}}
             <i class="fa-solid fa-user"></i>
