@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newTask = await Task.create({
       ...req.body,
