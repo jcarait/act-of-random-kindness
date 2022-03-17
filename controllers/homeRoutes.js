@@ -1,18 +1,24 @@
 const router = require('express').Router();
+const { User, Task, TaskLocation } = require ('../models');
+const withAUth = require ('../utils/auth');
 
-router.get('/', (req, res) => {
-
-
-    res.render('homepage');
+router.get('/', async (req, res) => {
+  try {
+    res.render('homepage', {
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/tasks/:id', async (req, res) => {
   try {
 
 
-    res.render('project', {
-      logged_in: req.session.logged_in
+    res.render('tasks', {
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -22,20 +28,53 @@ router.get('/project/:id', async (req, res) => {
 
 router.get('/profile', async (req, res) => {
   try {
-    
-
     res.render('profile', {
-      // logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/login', (req, res) => {
- 
+router.get('/login', async (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  try {
+    if (req.session.logged_in) {
+      res.redirect('/profile');
+      return;
+    } else {
+    res.render('login');
+  } 
+} catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-  res.render('login');
+router.get('/tasks', withAUth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const taskData = await Task.findAll({
+      include: [
+        {
+        model: User,
+        attributes: ['user_name'],
+      }, { 
+        model: TaskLocation,
+      },
+    ]
+    });
+
+    const tasks = taskData.map((task) => task.get({ plain: true}));
+
+    res.render('tasks', {
+      tasks,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
+  
 });
 
 module.exports = router;

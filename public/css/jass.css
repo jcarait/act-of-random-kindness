@@ -159,3 +159,7 @@ body {
   transition: 0.5s;
   border-radius: 5px;
 }
+
+#title + img {
+  width: 25px;
+}
