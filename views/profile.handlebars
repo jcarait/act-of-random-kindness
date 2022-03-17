@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{user.first_name}}!</h2>
+    <h2>Welcome, {{first_name}}!</h2>
   </div>
 </div>
 
@@ -23,11 +23,11 @@
     </form>
   </div>
 
-  {{#if tasks.length}}
+  {{#if creator_tasks.length}}
   <div class="col-md-6 task-list">
     <h3>Current task:</h3>
 
-    {{#each tasks as |task|}}
+    {{#each creator_tasks as |task|}}
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/tasks/{{task.id}}">{{task.task_name}}</a></h4>
