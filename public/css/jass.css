@@ -182,7 +182,7 @@ body {
 
 .columnTwo {
   display: grid;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: 1fr 5fr;
   border: solid var(--main-color);
   background-color: white;
   border-radius: 10px;
@@ -196,9 +196,14 @@ body {
 
 .subtitles {
   font-size: 20px;
-  font-weight: 700
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+
+/* Column One */
 .slidecontainer {
   width: 100%;
   display: flex;
@@ -370,3 +375,11 @@ body {
   padding: 1em;
 }
 
+/* Column Two */
+.availableTasksList {
+  padding-right: 1em;
+}
+
+.availableTasksList ol li {
+  margin-bottom: 1em;
+}
