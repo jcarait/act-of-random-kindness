@@ -15,14 +15,31 @@ router.get('/', async (req, res) => {
 
 router.get('/tasks/:id', async (req, res) => {
   try {
+    // Find the logged in user based on the session ID
+    const taskData = await Task.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['first_name'],
+        },
+      ],
+    });
+
+    console.log(taskData);
 
 
-    res.render('tasks', {
-      logged_in: req.session.logged_in,
+    const tasks = taskData.get({ plain: true });
+
+    console.log(tasks);
+
+    res.render('taskbyid', {
+      tasks,
+      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
   }
+
 });
 
 
@@ -77,15 +94,38 @@ router.get('/login', async (req, res) => {
   }
 });
 
-router.get('/tasks', withAUth, async (req, res) => {
+
+router.get('/tasks', async (req, res) => {
+
   try {
-    res.render('profile', {
-      logged_in: req.session.logged_in,
+    // Find the logged in user based on the session ID
+    const taskData = await Task.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['first_name'],
+        },
+      ],
+    });
+
+    console.log(taskData);
+
+
+    const tasks = taskData.map((task) => task.get({ plain: true }));
+
+    console.log(tasks);
+
+    res.render('tasks', {
+      tasks,
+      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
   }
-  
+
 });
+
+
+
 
 module.exports = router;
