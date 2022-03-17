@@ -1,13 +1,27 @@
 <div class="loginPageBody">
 <section class="homepage-text-center">
 <h1 id="home-title">Connect with people and give back with an Act of Random Kindness<span id="home-title-span">No act of kindness, no matter how small, is ever wasted.</span></h1>
+
+{{!-- If user is logged in, display different buttons --}}
+{{#if logged_in}}
 <div class="homepage-btn-group">
   <div class="home-signup-btn">
-  <button class="btn home-signup">Get started and help someone today</button>
+  <a href="/profile"><button class="btn home-signup">Create a task</button></a>
   </div>
   <div class="login-signup-btn">
-  <button class="btn home-login">Login</button>
+  <a href="/tasks"><button class="btn home-login">Find a task</button></a>
   </div>
 </div>
+
+{{else}}
+<div class="homepage-btn-group">
+  <div class="home-signup-btn">
+  <a href="/signup"><button class="btn home-signup">Get started and help someone today</button></a>
+  </div>
+  <div class="login-signup-btn">
+  <a href="/login"><button class="btn home-login">Login</button></a>
+  </div>
+</div>
+{{/if}}
 </section>
 </div>
