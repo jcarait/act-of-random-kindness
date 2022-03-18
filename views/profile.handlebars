@@ -11,29 +11,30 @@
 
 
 
-    <div class="col-md-6 task-list">
-      <h3>My Tasks</h3>
+    <div class="col-md-5 mb-3 border border-2 rounded p-3 task-list">
+      <h3 class="text-center mb-4">My Tasks</h3>
       {{#if creator_tasks.length}}
-      {{#each creator_tasks as |task|}}
+
       <div class="container profile-container my-tasks-list">
-        <div class="row mb-2">
+              {{#each creator_tasks as |task|}}
+        <div class="row mb-3">
           <div class="col-md-8">
             <h4><a href="/tasks/{{task.id}}">{{task.task_name}}</a></h4>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 mr-0">
             <button class="btn btn-sm btn-danger" data-id="{{task.id}}">DELETE</button>
           </div>
         </div>
         {{/each}}
       </div>
       {{/if}}
-
     </div>
-    <div class="col-md-6 task-list">
-           <h3>Assigned Tasks</h3>
-            {{#if volunteer_tasks.length}}
+    <div class="col-md-1 p-1"></div>
+    <div class="col-md-5 border border-2 rounded p-3 task-list">
+      <h3 class="text-center mb-4">Assigned Tasks</h3>
+      {{#if volunteer_tasks.length}}
       {{#each volunteer_tasks as |task|}}
-      <div class="container profile-container assigned-tasks-list">
+      <div class="container mb-3 profile-container assigned-tasks-list">
         <div class="row mb-2">
           <div class="col-md-8">
             <h4><a href="/tasks/{{task.id}}">{{task.task_name}}</a></h4>
@@ -50,10 +51,14 @@
   </div>
 </div>
 
-<div class="container profile-container">
-  <div class="col-md-4 form-group">
-    <a href="/create-task"><button id="create-task-btn" class="btn btn-primary" type="button">Ask for help, create a
-        volunteer task</button></a>
+<div class="gutter p-3"></div>
+
+<div class="container mt-4 profile-container">
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <a href="/create-task"><button id="create-task-btn" class="btn btn-primary" type="button">Ask for help, create a
+          volunteer task</button></a>
+    </div>
   </div>
 </div>
 
