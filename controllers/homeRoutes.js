@@ -66,10 +66,16 @@ router.get('/profile', withAuth, async (req, res) => {
           model: Task,
           as: 'creator_tasks'
         },
+        {
+          model: Task,
+          as: 'volunteer_tasks'
+        },
       ]
     });
 
     const user = userData.get({ plain: true});
+
+    console.log(user);
 
     res.render('profile', {
       ...user,
@@ -92,6 +98,11 @@ router.get('/tasks', withAuth, async (req, res) => {
           as: 'creator',
           attributes: ['user_name'],
         },
+        {
+          model: User,
+          as: 'volunteer',
+          attributes: ['user_name'],
+        }
       ],
     });
 
@@ -114,7 +125,6 @@ router.get('/tasks', withAuth, async (req, res) => {
 
 router.get('/tasks/:id', withAuth, async (req, res) => {
 
-  console.log(`request paramter ${req.params.id}`);
   try {
     const taskData = await Task.findByPk(req.params.id, {
       include: [
@@ -123,6 +133,11 @@ router.get('/tasks/:id', withAuth, async (req, res) => {
           as: 'creator',
           attributes: ['user_name'],
         },
+        {
+          model: User,
+          as: 'volunteer',
+          attributes: ['user_name'],
+        }
       ],
     });
 
@@ -140,13 +155,14 @@ router.get('/tasks/:id', withAuth, async (req, res) => {
 
 });
 
+router.get('/create-task', withAuth, async (req, res) => {
+  try {
 
-
-
-
-
-
-
+    res.render('createTask')
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 
