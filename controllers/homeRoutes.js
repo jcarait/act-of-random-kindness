@@ -1,6 +1,7 @@
 const router = require('express').Router();
+const { createPoolCluster } = require('mysql2');
 const { User, Task, TaskLocation } = require ('../models');
-const withAUth = require ('../utils/auth');
+const withAuth = require ('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -27,53 +28,11 @@ router.get('/', async (req, res) => {
 
 });
 
-router.get('/tasks/:id', async (req, res) => {
-  try {
-
-
-    res.render('tasks', {
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
-router.get('/profile', async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-    
-      include: [
-        {
-          model: Task,
-          as: 'creator_tasks'
-        }
-      ]
-    });
-
-  
-    const user = userData.get({ plain: true});
-
-    console.log(user);
-
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-
-  
-});
-
 router.get('/login', async (req, res) => {
   // If the user is already logged in, redirect the request to another route
   try {
     if (req.session.logged_in) {
-      res.redirect('/tasks');
+      res.redirect('/profile');
       return;
     } else {
     res.render('login');
@@ -83,23 +42,128 @@ router.get('/login', async (req, res) => {
   }
 });
 
-router.get('/tasks', withAUth, async (req, res) => {
+router.get('/signup', async (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  try {
+    if (req.session.logged_in) {
+      res.redirect('/profile');
+      return;
+    } else {
+    res.render('signup');
+  } 
+} catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, { 
+      include: [
+        {
+          model: Task,
+          as: 'creator_tasks'
+        },
+        {
+          model: Task,
+          as: 'volunteer_tasks'
+        },
+      ]
+    });
+
+    const user = userData.get({ plain: true});
+
+    console.log(user);
+
+    res.render('profile', {
+      ...user,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+
+  
+});
+
+router.get('/tasks', withAuth, async (req, res) => {
+
   try {
     const taskData = await Task.findAll({
       include: [
         {
-          model: Task,
+          model: User,
+          as: 'creator',
+          attributes: ['user_name'],
         },
-      ]
-    })
+        {
+          model: User,
+          as: 'volunteer',
+          attributes: ['user_name'],
+        }
+      ],
+    });
+
+    console.log(taskData);
+
+
+    const tasks = taskData.map((task) => task.get({ plain: true }));
+
+    console.log(tasks);
 
     res.render('tasks', {
-      logged_in: req.session.logged_in,
+      tasks,
+      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
   }
-  
+
 });
+
+router.get('/tasks/:id', withAuth, async (req, res) => {
+
+  try {
+    const taskData = await Task.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          as: 'creator',
+          attributes: ['user_name'],
+        },
+        {
+          model: User,
+          as: 'volunteer',
+          attributes: ['user_name'],
+        }
+      ],
+    });
+
+    const tasks = taskData.get({ plain: true});
+
+    console.log(tasks);
+
+    res.render('taskbyid', {
+      tasks,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
+});
+
+router.get('/create-task', withAuth, async (req, res) => {
+  try {
+
+    res.render('createTask')
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 module.exports = router;

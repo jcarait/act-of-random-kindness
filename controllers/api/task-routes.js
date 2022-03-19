@@ -24,12 +24,12 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const taskData = await Task.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        creator_id: req.session.user_id,
       }
     });
 

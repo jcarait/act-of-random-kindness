@@ -1,44 +1,68 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{first_name}}!</h2>
-  </div>
-</div>
-
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Volunteer Task:</h3>
-
-    <form class="form new-task-form">
-      <div class="form-group">
-        <label for="task-name">task name:</label>
-        <input class="form-input" type="text" id="task-name" name="task-name" />
-      </div>
-      <div class="form-group">
-        <label for="task-desc">description:</label>
-        <textarea class="form-input" id="task-desc" name="task-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
-
-  {{#if creator_tasks.length}}
-  <div class="col-md-6 task-list">
-    <h3>Current task:</h3>
-
-    {{#each creator_tasks as |task|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/tasks/{{task.id}}">{{task.task_name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{task.id}}">DELETE</button>
-      </div>
+<div class="container mt-4 profile-container">
+  <div class="row">
+    <div class="col-auto">
+      <h2>Welcome, {{first_name}}!</h2>
     </div>
-    {{/each}}
   </div>
-  {{/if}}
 </div>
 
-<script src="./js/task.js"></script>
+<div class="container mt-4 profile-container">
+  <div class="row">
+
+
+
+    <div class="col-md-5 mb-3 border border-2 rounded p-3 task-list">
+      <h3 class="text-center mb-4">My Tasks</h3>
+      {{#if creator_tasks.length}}
+
+      <div class="container profile-container my-tasks-list">
+              {{#each creator_tasks as |task|}}
+        <div class="row mb-3">
+          <div class="col-md-8">
+            <h4><a href="/tasks/{{task.id}}">{{task.task_name}}</a></h4>
+          </div>
+          <div class="col-md-4 mr-0">
+            <button class="btn btn-sm btn-danger" data-id="{{task.id}}">DELETE</button>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+    </div>
+    <div class="col-md-1 p-1"></div>
+    <div class="col-md-5 border border-2 rounded p-3 task-list">
+      <h3 class="text-center mb-4">Assigned Tasks</h3>
+      {{#if volunteer_tasks.length}}
+      {{#each volunteer_tasks as |task|}}
+      <div class="container mb-3 profile-container assigned-tasks-list">
+        <div class="row mb-2">
+          <div class="col-md-8">
+            <h4><a href="/tasks/{{task.id}}">{{task.task_name}}</a></h4>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-sm btn-danger" data-id="{{task.id}}">DELETE</button>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+    </div>
+
+  </div>
+</div>
+
+<div class="gutter p-3"></div>
+
+<div class="container mt-4 profile-container">
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <a href="/create-task"><button id="create-task-btn" class="btn btn-primary" type="button">Ask for help, create a
+          volunteer task</button></a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="./js/profile.js"></script>

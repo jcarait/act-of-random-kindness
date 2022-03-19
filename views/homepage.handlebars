@@ -1,1 +1,30 @@
-<div class="loginPageBody"></div>
+<div class="loginPageBody">
+  <div class="container d-flex flex-column homepage-text-center">
+    <section class="col-md-6 mt-4">
+      <h1 id="home-title">Connect with people and give back with an Act of Random Kindness<span id="home-title-span">No
+          act of kindness, no matter how small, is ever wasted.</span></h1>
+
+      {{!-- If user is logged in, display different buttons --}}
+      {{#if logged_in}}
+      <div class="mt-4 homepage-btn-group">
+        <div class="home-signup-btn">
+          <a href="/create-task"><button class="custom-btn home-signup">Ask for help</button></a>
+        </div>
+        <div class="login-signup-btn">
+          <a href="/tasks"><button class="custom-btn home-login">Volunteer</button></a>
+        </div>
+      </div>
+
+      {{else}}
+      <div class="mt-4 homepage-btn-group">
+        <div class="home-signup-btn">
+          <a href="/signup"><button class="custom-btn home-signup">Get started and lend a helping hand today</button></a>
+        </div>
+        <div class="login-signup-btn">
+          <a href="/login"><button class="custom-btn home-login">Login</button></a>
+        </div>
+      </div>
+      {{/if}}
+    </section>
+  </div>
+</div>

@@ -33,7 +33,10 @@ Task.init(
         },
         status: {
             type: DataTypes.STRING,
-            allowNull: true,
+            defaultValue: 'open',
+            validate: {
+                isIn: [['open', 'closed', 'cancelled', 'in progress']]
+            },
         },
         creator_id: {
             type: DataTypes.INTEGER,
