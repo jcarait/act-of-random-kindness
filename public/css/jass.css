@@ -325,3 +325,25 @@ body {
   color: rgb(255, 255, 255);
   transition: all 0.25s ease 0s;
 }
+
+.card-taskid {
+  margin: 5% 25%;
+  border: 7px double whitesmoke;
+  border-radius: 10px;
+  background-color: #222222;
+  color: white;
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+.card-tasks {
+  margin: 1% 2%;
+  border: 7px double whitesmoke;
+  border-radius: 10px;
+  background-color: #222222;
+  color: white;
+  width: 46%;
+  display: inline-block;
+  text-align: center;
+}
