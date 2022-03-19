@@ -1,16 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-3">
+    <div class="col-md-12"></div>
+    <div class="col-md-12">
       <div class="container">
         <div class="row mt-2">
           {{#each tasks as |task|}}
 
 
-          <div class="col-md-12">
+          <div class="card-tasks col-md-12">
             <h4><a href="/tasks/{{task.id}}">{{task.task_name}}</a></h4>
-            <p>Task by : {{creator.user_name}}</p>
-            <p>Task Description :{{task.description}}</p>
+            <h6 style="text-decoration: underline;">Task by</h6>
+            <p>{{creator.user_name}}</p>
+            <h6 style="text-decoration: underline;">Task Description</h6>
+            <p>{{task.description}}</p>
             <p>Length of task : {{task.duration}} minutes</p>
             <p>Status : {{task.status}}</p>
             <p>Last updated : {{task.updatedAt}}</p>
