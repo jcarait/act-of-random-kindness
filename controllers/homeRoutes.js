@@ -96,12 +96,12 @@ router.get('/tasks', withAuth, async (req, res) => {
         {
           model: User,
           as: 'creator',
-          attributes: ['user_name'],
+          attributes: { exclude: ['password'] },
         },
         {
           model: User,
           as: 'volunteer',
-          attributes: ['user_name'],
+          attributes: { exclude: ['password'] },
         }
       ],
     });
