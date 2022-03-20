@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Task, TaskLocation } = require('../../models');
-// const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -11,11 +11,11 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newLocation = await TaskLocation.create({
       ...req.body,
-      // user_id: req.session.user_id,
+      creator_id: req.session.user_id,
     });
 
     res.status(200).json(newLocation);
