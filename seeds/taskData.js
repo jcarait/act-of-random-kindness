@@ -12,7 +12,7 @@ const taskData = [
     volunteer_id: 3
   },
   {
-    task_name: "Lawm Mowing",
+    task_name: "Lawn Mowing",
     description: "Elderly couple looking for help to mow our lawn. any help is much appreciated",
     date: new Date(2022,3,13),
     duration: 120,

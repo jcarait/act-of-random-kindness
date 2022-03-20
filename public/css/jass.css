@@ -326,13 +326,23 @@ body {
   transition: all 0.25s ease 0s;
 }
 
+.task-list {
+  color: white;
+  background-color: #222222;
+  border: 10px double white;
+  border-radius: 15px;
+  padding: 2%;
+  margin: 1%;
+
+}
+
 .card-taskid {
-  margin: 5% 25%;
+  margin: 5% 10%;
   border: 7px double whitesmoke;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: #222222;
   color: white;
-  width: 50%;
+  width: 80%;
   display: inline-block;
   text-align: center;
 }
@@ -340,7 +350,7 @@ body {
 .card-tasks {
   margin: 1% 2%;
   border: 7px double whitesmoke;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: #222222;
   color: white;
   width: 46%;

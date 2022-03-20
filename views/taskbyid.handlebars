@@ -1,10 +1,18 @@
+    <div style="background-color: #767E93;">  
       <div class="card-taskid">
         <h4 style="text-decoration: underline;">{{tasks.task_name}}</h4>
-        <h6 style="text-decoration: underline;">Task by</h6>
-        <p>{{tasks.creator.user_name}}</p>
-        <h6 style="text-decoration: underline;">Task Description</h6>
-        <p>{{tasks.description}}</p>
-        <p>Length of task : {{tasks.duration}} minutes</p>
-        <p>Status : {{tasks.status}}</p>
-        <p>Last updated : {{tasks.updatedAt}}</p>
+        <h5 style="text-decoration: underline;">Task by</h5>
+        <p class="btn btn-light">{{tasks.creator.first_name}} {{tasks.creator.last_name}}</p>
+        <h5 style="text-decoration: underline;">Task Description</h5>
+        <p class="alert alert-light">{{tasks.description}}</p>
+        <h6 style="text-decoration: underline;">Task Location</h6>
+        <p>{{tasks.location}}822 Pittwater Rd, Dee Why, NSW, 2099</p>
+        <h6 style="text-decoration: underline;">Length of Task</h6>
+        <p>{{tasks.duration}} minutes</p>
+        <h6 style="text-decoration: underline;">Status</h6>
+        <p>{{tasks.status}}</p>
+        <hr
+        <h6 style="text-decoration: underline;">Last Updated</h6>
+        <p>{{tasks.updatedAt}}</p>
       </div>
+    </div>  
