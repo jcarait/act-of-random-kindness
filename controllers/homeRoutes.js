@@ -88,6 +88,37 @@ router.get('/profile', withAuth, async (req, res) => {
   
 });
 
+// router.get('/users/:id', async (req, res) => {
+
+//   try {
+//     const userData = await User.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: Task,
+//           attributes: { exclude: ['password'] },
+//         },
+//         {
+//           model: TaskLocation,
+//           attributes: { exclude: ['password'] },
+//         }
+//       ],
+//     });
+
+//     const tasks = userData.get({ plain: true});
+
+//     console.log(tasks);
+
+//     res.render('taskbyuserid', {
+//       tasks,
+//       logged_in: true,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+
+// });
+
+
 router.get('/tasks', withAuth, async (req, res) => {
 
   try {
@@ -131,12 +162,12 @@ router.get('/tasks/:id', withAuth, async (req, res) => {
         {
           model: User,
           as: 'creator',
-          attributes: ['user_name'],
+          attributes: { exclude: ['password'] },
         },
         {
           model: User,
           as: 'volunteer',
-          attributes: ['user_name'],
+          attributes: { exclude: ['password'] },
         }
       ],
     });

@@ -1,24 +1,28 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12"></div>
-    <div class="col-md-12">
-      <div class="container">
-        <div class="row mt-2">
-          {{#each tasks as |task|}}
+<div style="background-color: #767E93;"> 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12"></div>
+      <div class="col-md-12">
+        <div class="container">
+          <h2 style="text-decoration:underline; text-align: center;" class="alert alert-dark">All Tasks </h2>
+          <div class="row mt-2">
+            {{#each tasks as |task|}}
 
 
-          <div class="card-tasks col-md-12">
-            <h4><a href="/tasks/{{task.id}}">{{task.task_name}}</a></h4>
-            <h6 style="text-decoration: underline;">Task by</h6>
-            <p>{{creator.user_name}}</p>
-            <h6 style="text-decoration: underline;">Task Description</h6>
-            <p>{{task.description}}</p>
-            <p>Length of task : {{task.duration}} minutes</p>
-            <p>Status : {{task.status}}</p>
-            <p>Last updated : {{task.updatedAt}}</p>
+            <div class="card-tasks col-md-12">
+              <h4><a href="/tasks/{{task.id}}">{{task.task_name}}</a></h4>
+              <h6 style="text-decoration: underline;">Task by</h6>
+              <p class="btn btn-light">{{creator.first_name}} {{creator.last_name}}</p>
+              <h6 style="text-decoration: underline;">Task Description</h6>
+              <p>{{task.description}}</p>
+              <p>Length of task : {{task.duration}} minutes</p>
+              <p>Status : {{task.status}}</p>
+              <hr
+              <p>Last updated : {{task.updatedAt}}</p>
+            </div>
+
+            {{/each}}
           </div>
-
-          {{/each}}
         </div>
       </div>
     </div>
