@@ -18,7 +18,7 @@
               <p>Length of task : {{task.duration}} minutes</p>
               <p>Status : {{task.status}}</p>
               <hr
-              <p>Last updated : {{task.updatedAt}}</p>
+              <p>Last updated : {{format_date task.updatedAt}}</p>
             </div>
 
             {{/each}}

@@ -15,6 +15,8 @@ html, body {
   background-color: var(--main-color)
 }
 
+/* ================ NAV AREA ==================== */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -37,7 +39,7 @@ html, body {
   list-style: none;
   width: 20%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   cursor: pointer;
   padding-right: 10px;
 }
@@ -69,7 +71,7 @@ html, body {
 }
 
 .loginBar {
-  width: 4%;
+  float: right;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -246,7 +248,7 @@ html, body {
 .btn-primary {
   color: var(--main-color);
   background-color: var(--secondary-color);
-  box-shadow: inset 0 1px 0 0 hsla(0,0%,100%,0.4);
+  /* box-shadow: inset 0 1px 0 0 hsla(0,0%,100%,0.4); */
 }
 
 #login-button {
