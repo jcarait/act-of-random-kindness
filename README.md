@@ -13,13 +13,23 @@
 
 ## User Story
 
-    As a member of cummunity/society i would like to build an web applicaiton where users can post the help they need with a particular task and display under their profile. simultaneously, An user can also search and browse task by other users and offer help as a volunteer.
-    
+    * As a user or a person who needs help, I am able to login and create a task with location  and post those task for volunteers to browse and offer help. I’m also able to update and delete my task.
+
+    * As a user or a volunteer, I am able to login and browse task, view individual task, view details and location of task. I am also able to offer my services to open tasks.
+
+## Background
+
+    We all need some kind of help in our daily lives. That is how the society was built and had prospered over time. We belive the need to provide users with a platform to connect to their community and offer to help out, and share their skills. We also belive that users with difficult afinancial situations should still be able to seek help.
+
 
 ## Mission
     * to build an web application that allows users who need help to post their task and also view and accept tasks posted by other users
-    * a task location is to attached to the task so the volunteer can calculate the distance in between
+    * a task location is to attached to the task so the volunteer can calculate the distance in between 
     * have a clean, polished and responsive user interface
+
+
+## Usage
+
 
 
 ## GITHUB page
@@ -28,7 +38,12 @@
 
 ## Demo Link
 
-chrome-extension://
+https://act-of-random-kindness.herokuapp.com/
+
+Recommended username and password for demo:
+
+User: roman
+PW: Password12345
 
 # Screenshots
 
