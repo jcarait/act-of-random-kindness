@@ -1,0 +1,4 @@
+DB_NAME=ark_db
+DB_USER=root
+DB_PW=password
+JAWSDB_URL=mysql://e52z61fwxzkl5ed8:pwwyr7xhw2ena13m@acw2033ndw0at1t7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/tkxpke9bibw421xo
