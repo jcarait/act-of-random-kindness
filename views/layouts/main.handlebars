@@ -10,7 +10,13 @@
 
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/location.css">
   <script src="https://kit.fontawesome.com/043ce83f9a.js" crossorigin="anonymous"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      rel="stylesheet"
+    />
 </head>
 
 <body>
@@ -32,12 +38,6 @@
 
       </ul>
       <ul class="navbarTwo">
-        <li><div class="search-container">
-        <form action="/">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-        </div></li>
         <li><div class="loginBar">
           {{#if logged_in}}
             <button class="no-button" id="logout"><i class="fa-solid fa-user"></i>
